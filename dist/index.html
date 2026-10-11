@@ -11,20 +11,18 @@
 <body>
 <main class="sheet">
   <header>
-    <p class="eyebrow">ANALYSIS · DIFFERENTIALGLEICHUNGEN</p>
-    <h1>Feder–Masse-System</h1>
-    <p class="subtitle">Ein kurzer Schub. Eine bleibende Schwingung.</p>
+    <h1>Feder-Masse-System</h1>
     <div class="equation" aria-label="x zwei Strich plus x gleich f; Anfangsauslenkung und Anfangsgeschwindigkeit gleich null">
       <math display="block"><mrow><mi>x</mi><mo>″</mo><mo>(</mo><mi>t</mi><mo>)</mo><mo>+</mo><mi>x</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>,</mo><mspace width="1em"/><mi>x</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>=</mo><mi>x</mi><mo>′</mo><mo>(</mo><mn>0</mn><mo>)</mo><mo>=</mo><mn>0</mn></mrow></math>
     </div>
   </header>
 
   <section aria-labelledby="animation-title">
-    <div class="section-heading"><h2 id="animation-title"><span class="section-number">01</span> Das Experiment</h2><span id="phase" class="phase" role="status">Vor dem Schub</span></div>
-    <p class="intro">Die Rakete zieht mit konstanter Kraft <i>f</i> = 1 von <span class="a-label">A</span> bis <span class="b-label">B</span>. Danach wirkt nur die Feder.</p>
+    <div class="section-heading"><h2 id="animation-title">Experiment</h2><span id="phase" class="phase" role="status">Vor dem Schub</span></div>
+    <p class="intro">Rakete zieht mit konstanter Kraft <i>f</i> = 1 von <span class="a-label">A</span> bis <span class="b-label">B</span>. Danach wirkt nur die Feder.</p>
     <div class="parameter-grid">
-      <div class="parameter"><div class="parameter-top"><label for="a">A <span>Schub beginnt</span></label><div><input id="a-number" type="number" min="0" max="30" step="0.1" value="1" aria-label="Schubbeginn A in Sekunden"><span class="unit">s</span></div></div><input id="a" aria-label="Schubbeginn A" type="range" min="0" max="30" step="0.1" value="1"></div>
-      <div class="parameter"><div class="parameter-top"><label for="b">B <span>Schub endet</span></label><div><input id="b-number" type="number" min="0" max="30" step="0.1" value="5" aria-label="Schubende B in Sekunden"><span class="unit">s</span></div></div><input id="b" aria-label="Schubende B" type="range" min="0" max="30" step="0.1" value="5"></div>
+      <div class="parameter"><div class="parameter-top"><label for="a">A <span>Schub beginnt</span></label><div><input id="a-number" type="number" min="0" max="30" step="0.1" value="1" aria-label="Schubbeginn A in Sekunden"><span class="unit">s</span></div></div></div>
+      <div class="parameter"><div class="parameter-top"><label for="b">B <span>Schub endet</span></label><div><input id="b-number" type="number" min="0" max="30" step="0.1" value="5" aria-label="Schubende B in Sekunden"><span class="unit">s</span></div></div></div>
     </div>
     <div class="scene-wrap">
       <svg id="scene" viewBox="0 0 800 260" role="img" aria-labelledby="scene-title scene-desc">
@@ -51,21 +49,17 @@
         </g>
         <path id="displacement" stroke="#008a94" stroke-width="1.5" marker-end="url(#teal-arrow)"/>
       </svg>
-      <div class="readouts"><span><i>t</i> = <output id="time-value">0,00</output> s</span><span><i>x(t)</i> = <output id="x-value">0,000</output></span><span><i>f(t)</i> = <output id="f-value">0</output></span></div>
     </div>
-    <div class="transport"><button id="play" class="primary" type="button"><span id="play-icon" aria-hidden="true">▶</span> <span id="play-label">Starten</span></button><button id="reset" type="button" title="Zeit auf null zurücksetzen">↺ <span>Zurücksetzen</span></button><label class="speed-label" for="speed">Tempo <select id="speed"><option value="0.25">0,25×</option><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label></div>
+    <div class="transport"><button id="play" class="primary" type="button"><span id="play-icon" aria-hidden="true">▶</span> <span id="play-label">Starten</span></button><button id="reset" type="button" title="Zeit auf null zurücksetzen">↺ <span>Zurücksetzen</span></button></div>
     <div class="time-slider"><span>0 s</span><input id="time" type="range" min="0" max="20" step="0.01" value="0" aria-label="Zeitpunkt der Animation in Sekunden"><span id="time-end">20 s</span></div>
   </section>
 
   <section class="plot-section" aria-labelledby="plot-title">
-    <div class="section-heading"><h2 id="plot-title"><span class="section-number">02</span> Die Lösung</h2><label class="window-label" for="horizon">Zeitfenster <select id="horizon"><option value="20">20 s</option><option value="40">40 s</option><option value="80">80 s</option><option value="160">160 s</option></select></label></div>
+    <div class="section-heading"><h2 id="plot-title">Plot</h2><label class="window-label" for="horizon">Zeitfenster <select id="horizon"><option value="20">20 s</option><option value="40">40 s</option><option value="80">80 s</option><option value="160">160 s</option></select></label></div>
     <div class="legend"><span><span class="line-key"></span>Auslenkung <i>x(t)</i></span><span><span class="area-key"></span>Rakete aktiv</span><span><span class="dot-key"></span>Aktueller Zeitpunkt</span></div>
     <svg id="plot" viewBox="0 0 800 310" role="img" aria-labelledby="plot-svg-title plot-desc"><title id="plot-svg-title">Lösung x(t) über der Zeit</title><desc id="plot-desc">Der türkisfarbene Punkt folgt der Animation. Die goldene Fläche markiert das Schubintervall von A bis B. Klicken oder Ziehen im Plot setzt die Zeit.</desc><defs><clipPath id="plot-clip"><rect x="51" y="25" width="729" height="244"/></clipPath><clipPath id="past-clip"><rect id="past-rect" x="51" y="25" width="0" height="244"/></clipPath></defs><g id="grid"></g><g clip-path="url(#plot-clip)"><rect id="active-band" y="25" height="244" fill="#eeb211" fill-opacity="0.12"/><path id="curve" fill="none" stroke="#008a94" stroke-width="2.5" stroke-linejoin="round"/><path id="past-curve" clip-path="url(#past-clip)" fill="none" stroke="#006b73" stroke-width="3" stroke-linejoin="round"/><line id="cursor" y1="25" y2="269" stroke="#008a94" stroke-opacity="0.4" stroke-dasharray="3 4"/></g><g id="switches"></g><circle id="plot-halo" r="10" fill="#008a94" fill-opacity="0.12"/><circle id="plot-point" r="5" fill="#008a94" stroke="#fff" stroke-width="2"/><text x="18" y="17" fill="#566460" font-style="italic">x(t)</text><text x="785" y="306" text-anchor="end" fill="#566460" font-style="italic">t [s]</text></svg>
-    <p class="plot-hint">Im Plot klicken oder die Zeitleiste ziehen, um einen Zeitpunkt zu untersuchen. Beim Abspielen wächst das Zeitfenster automatisch mit.</p>
-    <div class="formula-box"><p class="formula-title">Die exakte Lösung</p><div class="formula"><math display="block"><mrow><mi>x</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><mo>[</mo><mn>1</mn><mo>−</mo><mi>cos</mi><mo>(</mo><mi>t</mi><mo>−</mo><mi>A</mi><mo>)</mo><mo>]</mo><mi>u</mi><mo>(</mo><mi>t</mi><mo>−</mo><mi>A</mi><mo>)</mo><mo>−</mo><mo>[</mo><mn>1</mn><mo>−</mo><mi>cos</mi><mo>(</mo><mi>t</mi><mo>−</mo><mi>B</mi><mo>)</mo><mo>]</mo><mi>u</mi><mo>(</mo><mi>t</mi><mo>−</mo><mi>B</mi><mo>)</mo></mrow></math></div><p><i>u</i> ist die Heaviside-Funktion: 0 vor dem Schaltzeitpunkt, 1 ab dem Schaltzeitpunkt. Es gilt <i>f(t)</i> = <i>u(t − A) − u(t − B)</i>.</p></div>
-    <p id="insight" class="insight"></p>
+    <div class="formula-box"><p class="formula-title">Lösung</p><div class="formula"><math display="block"><mrow><mi>x</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><mo>[</mo><mn>1</mn><mo>−</mo><mi>cos</mi><mo>(</mo><mi>t</mi><mo>−</mo><mi>A</mi><mo>)</mo><mo>]</mo><mi>u</mi><mo>(</mo><mi>t</mi><mo>−</mo><mi>A</mi><mo>)</mo><mo>−</mo><mo>[</mo><mn>1</mn><mo>−</mo><mi>cos</mi><mo>(</mo><mi>t</mi><mo>−</mo><mi>B</mi><mo>)</mo><mo>]</mo><mi>u</mi><mo>(</mo><mi>t</mi><mo>−</mo><mi>B</mi><mo>)</mo></mrow></math></div></div>
   </section>
-  <footer><span>Beispiel 1.3.18</span><span>Ideales System · ohne Dämpfung · m = k = 1</span></footer>
 </main>
 </body>
 </html>

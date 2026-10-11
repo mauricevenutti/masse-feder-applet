@@ -1,6 +1,6 @@
 import { solution } from './physics.js';
 const $ = id => document.getElementById(id);
-const state = { a: 1, b: 5, t: 0, horizon: 20, speed: 1, playing: false };
+const state = { a: 1, b: 5, t: 0, horizon: 20, playing: false };
 const fmt = (n, digits = 2) => (Math.abs(n) < 0.5 * 10 ** -digits ? 0 : n).toLocaleString('de-CH', { minimumFractionDigits: digits, maximumFractionDigits: digits }).replace('.', ',');
 const px = t => 51 + t / state.horizon * 729;
 const py = x => 147 - x * 50;
@@ -43,7 +43,6 @@ function drawPlot() {
   if (!option) { option = new Option(`${state.horizon} s`, state.horizon); $('horizon').add(option); }
   $('horizon').value = state.horizon;
   const amplitude = Math.abs(2 * Math.sin((state.b - state.a) / 2));
-  $('insight').textContent = state.a === state.b ? 'A = B: kein Schub, keine Bewegung.' : `Schubdauer: ${fmt(state.b - state.a, 1)} s. Nach B schwingt die Masse mit Amplitude ${fmt(amplitude, 3)} weiter. Ohne Dämpfung klingt die Schwingung nicht ab.`;
 }
 function render() {
   const { x, f } = solution(state.t, state.a, state.b);
@@ -58,9 +57,6 @@ function render() {
   $('thrust').style.display = f ? '' : 'none';
   // The flame is a function of simulation time, so pausing freezes it too.
   attr('outer-flame', { d: `M-36 89Q-65 88 ${-85 - 8 * Math.sin(state.t * 35)} 101Q-64 114-36 112Z` });
-  $('time-value').textContent = fmt(state.t);
-  $('x-value').textContent = fmt(x, 3);
-  $('f-value').textContent = f;
   $('time').value = state.t;
   $('time').setAttribute('aria-valuetext', `${fmt(state.t)} Sekunden`);
   const phase = state.a === state.b ? 'Kein Schub' : state.t < state.a ? 'Vor dem Schub' : f ? 'Rakete aktiv' : 'Freie Schwingung';
@@ -74,12 +70,11 @@ function setParameter(key, value) {
   if (!Number.isFinite(value)) return;
   state[key] = Math.round(Math.max(0, Math.min(30, value)) * 10) / 10;
   if (state.a > state.b) state[key === 'a' ? 'b' : 'a'] = state[key];
-  for (const k of ['a', 'b']) { $(k).value = state[k]; $(`${k}-number`).value = state[k]; }
+  for (const k of ['a', 'b']) $(`${k}-number`).value = state[k];
   if (state.b > state.horizon - 4) state.horizon = Math.ceil((state.b + 10) / 20) * 20;
   drawPlot(); render();
 }
 for (const key of ['a', 'b']) {
-  $(key).addEventListener('input', event => setParameter(key, Number(event.target.value)));
   $(`${key}-number`).addEventListener('change', event => {
     if (event.target.value === '' || !Number.isFinite(event.target.valueAsNumber)) event.target.value = state[key];
     else setParameter(key, event.target.valueAsNumber);
@@ -87,7 +82,6 @@ for (const key of ['a', 'b']) {
 }
 $('play').addEventListener('click', () => setPlaying(!state.playing));
 $('reset').addEventListener('click', () => { state.t = 0; setPlaying(false); render(); });
-$('speed').addEventListener('change', event => { state.speed = Number(event.target.value); });
 $('time').addEventListener('input', event => { state.t = Number(event.target.value); setPlaying(false); render(); });
 $('horizon').addEventListener('change', event => {
   state.horizon = Math.max(Number(event.target.value), Math.ceil((state.b + 4) / 20) * 20);
@@ -109,7 +103,7 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) $('plot
 let last = null;
 function frame(now) {
   if (state.playing && last !== null && !document.hidden) {
-    state.t += Math.min((now - last) / 1000, .1) * state.speed;
+    state.t += Math.min((now - last) / 1000, .1);
     if (state.t > state.horizon) { state.horizon += 20; drawPlot(); }
     render();
   }

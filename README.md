@@ -8,8 +8,8 @@ Ein minimalistisches JavaScript-Applet zu Beispiel 1.3.18. Gestaltung angelehnt 
 
 ## Bedienung
 
-- A und B legen das Schubintervall `A ≤ t < B` fest (0–30 Sekunden). Beim Überkreuzen wird der andere Zeitpunkt mitverschoben; A = B bedeutet keinen Schub.
-- Start/Pause, Zurücksetzen und Tempo steuern die Animation.
+- A und B werden als Zahlen eingegeben und legen das Schubintervall `A ≤ t < B` fest (0–30 Sekunden). Beim Überkreuzen wird der andere Zeitpunkt mitverschoben; A = B bedeutet keinen Schub.
+- Start/Pause und Zurücksetzen steuern die Animation.
 - Zeitleiste oder Klicken/Ziehen im Plot setzen den gemeinsamen Zeitpunkt.
 - Das Zeitfenster ist wählbar und erweitert sich beim Abspielen automatisch.
 - Änderungen an A/B aktualisieren die gesamte exakte Lösung bei der aktuellen Zeit.
