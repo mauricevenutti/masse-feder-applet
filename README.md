@@ -15,7 +15,3 @@ Ein minimalistisches JavaScript-Applet zu Beispiel 1.3.18. Gestaltung angelehnt 
 - Änderungen an A/B aktualisieren die gesamte exakte Lösung bei der aktuellen Zeit.
 
 Das Modell ist `x″ + x = f` mit `x(0) = x′(0) = 0` und `f = u(t−A)−u(t−B)`. Keine Dämpfung. Die Rakete bewegt sich mit der Masse, ihr Schub zeigt immer nach rechts. Die Zeichnung verwendet 90 SVG-Einheiten pro Auslenkungseinheit.
-
-## Prüfung
-
-`npm test` prüft Anfangsbedingungen, Schaltzeitpunkte, Stetigkeit, Differentialgleichung und Energieerhaltung nach dem Schub.
