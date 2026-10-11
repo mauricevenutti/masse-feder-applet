@@ -1,3 +1,4 @@
 tests/
 *.tex
 .openai/
+aufgabe_und_loesung.*
