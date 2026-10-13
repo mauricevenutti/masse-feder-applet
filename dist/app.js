@@ -70,11 +70,15 @@ function setParameter(key, value) {
   if (!Number.isFinite(value)) return;
   state[key] = Math.round(Math.max(0, Math.min(30, value)) * 10) / 10;
   if (state.a > state.b) state[key === 'a' ? 'b' : 'a'] = state[key];
-  for (const k of ['a', 'b']) $(`${k}-number`).value = state[k];
+  for (const k of ['a', 'b']) {
+    $(`${k}-number`).value = state[k];
+    $(k).value = state[k];
+  }
   if (state.b > state.horizon - 4) state.horizon = Math.ceil((state.b + 10) / 20) * 20;
   drawPlot(); render();
 }
 for (const key of ['a', 'b']) {
+  $(key).addEventListener('input', event => setParameter(key, Number(event.target.value)));
   $(`${key}-number`).addEventListener('change', event => {
     if (event.target.value === '' || !Number.isFinite(event.target.valueAsNumber)) event.target.value = state[key];
     else setParameter(key, event.target.valueAsNumber);

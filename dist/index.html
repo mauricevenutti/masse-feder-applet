@@ -21,8 +21,8 @@
     <div class="section-heading"><h2 id="animation-title">Experiment</h2><span id="phase" class="phase" role="status">Vor dem Schub</span></div>
     <p class="intro">Rakete zieht mit konstanter Kraft <i>f</i> = 1 von <span class="a-label">A</span> bis <span class="b-label">B</span>. Danach wirkt nur die Feder.</p>
     <div class="parameter-grid">
-      <div class="parameter"><div class="parameter-top"><label for="a">A <span>Schub beginnt</span></label><div><input id="a-number" type="number" min="0" max="30" step="0.1" value="1" aria-label="Schubbeginn A in Sekunden"><span class="unit">s</span></div></div></div>
-      <div class="parameter"><div class="parameter-top"><label for="b">B <span>Schub endet</span></label><div><input id="b-number" type="number" min="0" max="30" step="0.1" value="5" aria-label="Schubende B in Sekunden"><span class="unit">s</span></div></div></div>
+      <div class="parameter"><div class="parameter-top"><label for="a">A <span>Schub beginnt</span></label><div><input id="a-number" type="number" min="0" max="30" step="0.1" value="1" aria-label="Schubbeginn A in Sekunden"><span class="unit">s</span></div></div><input id="a" type="range" min="0" max="30" step="0.1" value="1" aria-label="Schubbeginn A in Sekunden"></div>
+      <div class="parameter"><div class="parameter-top"><label for="b">B <span>Schub endet</span></label><div><input id="b-number" type="number" min="0" max="30" step="0.1" value="5" aria-label="Schubende B in Sekunden"><span class="unit">s</span></div></div><input id="b" type="range" min="0" max="30" step="0.1" value="5" aria-label="Schubende B in Sekunden"></div>
     </div>
     <div class="scene-wrap">
       <svg id="scene" viewBox="0 0 800 260" role="img" aria-labelledby="scene-title scene-desc">
