@@ -1,6 +1,6 @@
 # Feder–Masse-System
 
-Ein minimalistisches JavaScript-Applet zu Beispiel 1.3.18. Gestaltung angelehnt an https://github.com/mauricevenutti/partialbruch-applet.
+Ein minimalistisches JavaScript-Applet zu Beispiel 1.3.18. Erstellt mit ChatGPT Codex.
 
 ## Lokal starten
 
